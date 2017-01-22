@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<!-- jobs/index -->
+
+<html>
+<br><br>
+<head></head>
+<br><br>
+<br><br>
+
+<body>
 <div class="dropdown clearfix pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       排序
@@ -17,7 +27,9 @@
         </li>
     </ul>
 </div>
-<table class="table table-boldered">
+
+<div class="thumbnail">  <!-- 需要去stylesheets/application定义样式，来修正表格的排版 -->
+<table class="table table-boldered table-striped custab" style=" max-width: 700px; text-align: center" >
     <thead>
         <tr>
             <td>职缺</td>
@@ -25,8 +37,8 @@
             <td>薪资上限</td>
             <td>刊登时间</td>
         </tr>
-
     </thead>
+
     <tbody>
         <% @jobs.each do |job| %>
         <tr>
@@ -47,3 +59,7 @@
     </tbody>
 
 </table>
+</div>
+
+</body>
+</html>
