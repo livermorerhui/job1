@@ -1,5 +1,5 @@
 <div class="pull-right">
-  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default" ) %>
+  <%= link_to("发布任务", new_admin_job_path, :class => "btn btn-default" ) %>
 </div>
 
 <br><br>
@@ -8,23 +8,23 @@
       <thead>
         <tr>
             <td>
-                职缺
+                任务
             </td>
 
             <td>
-              收到履历数量
+              收到申请数量
             </td>
             <td>
-                薪资下限
+                报酬下限
             </td>
             <td>
-                薪资上限
+                报酬上限
             </td>
             <td>
                 管理选项
             </td>
             <td>
-                刊登时间
+                发布时间
             </td>
         </tr>
     </thead>
@@ -41,12 +41,12 @@
         <td> <%= job.wage_lower_bound %> </td>
         <td> <%= job.wage_upper_bound %> </td>
         <td>
-          <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
-          <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+          <%= link_to(content_tag(:span, "修改", :class => "fa fa-pencil-square-o"), edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+          <%= link_to(content_tag(:span, "删除", :class => "fa fa-eraser"), admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
             <% if job.is_hidden %>
-               <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
+               <%= link_to(content_tag(:span, "公布", :class => "fa fa-eye"), publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
             <% else %>
-               <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
+               <%= link_to(content_tag(:span, "隐藏", :class => "fa fa-low-vision"), hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
             <% end %>
         </td>
         <td>
